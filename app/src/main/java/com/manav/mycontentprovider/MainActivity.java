@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             String displayName = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-            System.out.println("name : "+ displayName +","+" number : "+ number);
+            System.out.println("number : "+ number);
             contactList.add(new ContactBean(number,displayName));
 
         }
