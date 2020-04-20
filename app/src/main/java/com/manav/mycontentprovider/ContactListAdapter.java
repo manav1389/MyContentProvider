@@ -13,9 +13,15 @@ import java.util.List;
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.listVewHolder> {
 
     private List<ContactBean> contactBeanList;
+    testInterface anInterface;
 
     public ContactListAdapter(List<ContactBean> contactBeanList) {
         this.contactBeanList = contactBeanList;
+    }
+
+    public ContactListAdapter(List<ContactBean> contactBeanList,testInterface anInterface) {
+        this.contactBeanList = contactBeanList;
+        this.anInterface = anInterface;
     }
 
     @NonNull
@@ -54,6 +60,15 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             displayName = itemView.findViewById(R.id.listDisplayName);
             number = itemView.findViewById(R.id.listNumber);
 
+            displayName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(anInterface!=null) {
+                        anInterface.onTestStarted();
+                    }
+                }
+            });
+
         }
 
         public void setListData(String displayName , String number){
@@ -62,6 +77,8 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             this.number.setText(number);
 
         }
+
+
 
 
     }
